@@ -90,7 +90,7 @@ export const Banner = () => {
         <Box>
           <figure className='mobile-none'>
             <img
-              loading='eager'
+              loading='lazy'
               src={`https://bellroy-cms-images.imgix.net/new-releases-homepage-image-${rs}.jpg?auto=format&amp;fit=max`}
               sizes='50vw'
               srcSet={`https://bellroy-cms-images.imgix.net/new-releases-homepage-image-${rs}.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,

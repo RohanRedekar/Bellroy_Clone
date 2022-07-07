@@ -1,0 +1,53 @@
+.footerLinks:hover {
+  color: rgb(216, 76, 31);
+}
+
+.footerGrid,
+.bottomFootersecondary {
+  font-size: 11px;
+  font-weight: 550;
+  letter-spacing: 1px;
+}
+
+.textSpacing {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+svg:hover {
+  fill: rgb(216, 76, 31);
+}
+
+@media only screen and (min-width: 1024px) {
+  .footerGrid {
+    padding: 30px 55px 20px 55px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    line-height: 25px;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .bottomFooter {
+    width: 93%;
+    margin: auto;
+  }
+  .bottomFooter img {
+    margin-right: 20px;
+  }
+  .bottomFootersecondary {
+    padding: 1.5rem 0;
+  }
+}
+
+.blackContainer {
+  background-color: rgb(34, 34, 34);
+  color: rgb(153, 153, 153);
+  font-family: "Lato", sans-serif;
+}
