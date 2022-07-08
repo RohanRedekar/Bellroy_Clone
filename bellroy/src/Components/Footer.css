@@ -2,6 +2,26 @@
   color: rgb(216, 76, 31);
 }
 
+.HELP {
+  grid-area: helps;
+}
+
+.SHOPPRODUCTS {
+  grid-area: product;
+}
+
+.SHOPCOLLECTIONS {
+  grid-area: collections;
+}
+
+.ABOUT {
+  grid-area: about;
+}
+
+.lgContainer {
+  grid-area: logo;
+}
+
 .footerGrid,
 .bottomFootersecondary {
   font-size: 11px;
@@ -19,30 +39,74 @@ svg:hover {
   fill: rgb(216, 76, 31);
 }
 
+.logoGrid {
+  grid-auto-flow: column;
+  grid-gap: 20px;
+}
+
 @media only screen and (min-width: 1024px) {
   .footerGrid {
     padding: 30px 55px 20px 55px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-areas: "helps product collections about logo logo";
     line-height: 25px;
   }
-}
 
-@media only screen and (min-width: 767px) and (max-width: 1024px) {
-  .footerGrid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .logoGrid {
+    justify-content: center;
   }
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 780px) and (max-width: 1024px) {
+  .footerGrid {
+    padding: 30px 20px 20px 20px;
+    grid-template-areas:
+      "logo logo logo logo"
+      "helps product collections about";
+  }
+
+  .logoGrid {
+    justify-content: left;
+  }
+}
+
+@media only screen and (min-width: 780px) {
+  .footerGrid {
+    grid-gap: 15px;
+  }
+
   .bottomFooter {
     width: 93%;
     margin: auto;
   }
-  .bottomFooter img {
-    margin-right: 20px;
-  }
+
   .bottomFootersecondary {
     padding: 1.5rem 0;
+  }
+
+  .blackContainer2 {
+    border-top: 1px solid rgb(153, 153, 153);
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 780px) {
+  .mobFooter {
+    padding: 30px 20px 20px 20px;
+  }
+
+  .bottomFooter,
+  .textSpacing {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .bottomFootersecondary {
+    align-items: flex-start;
+    padding: 10px 0 0 10px;
+    row-gap: 10px;
+  }
+
+  .logoGrid {
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -50,4 +114,16 @@ svg:hover {
   background-color: rgb(34, 34, 34);
   color: rgb(153, 153, 153);
   font-family: "Lato", sans-serif;
+}
+
+.bottomFooter img {
+  margin-right: 20px;
+}
+
+.footerTitles {
+  padding: 7px 0 7px 0;
+}
+
+div.chakra-collapse {
+  margin-top: -1rem;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import {
   Box,
   Flex,
@@ -26,7 +27,13 @@ import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { BiSearch, BiMenu } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+
+ const StyledPtag = styled.p`
+   &:hover {
+     color: #cc7133;
+   }
+ `;
 
 export const Navbar = () => {
   // states for different screen sizes
@@ -107,7 +114,7 @@ const DesktopView = ({ navLinks }) => {
             >
               {navLinks.map((el, i) => (
                 <Link key={i} to={"/products"}>
-                  {el}
+                  <StyledPtag>{el}</StyledPtag>
                 </Link>
               ))}
             </Flex>
@@ -326,7 +333,9 @@ function ShowOptions({ navLinks }) {
         <DrawerContent>
           <DrawerCloseButton />
           <Box height={"3rem"} textAlign={"center"}>
-            <Heading marginTop={'0.5rem'} fontSize={"1.5rem"}>Collections</Heading>
+            <Heading marginTop={"0.5rem"} fontSize={"1.5rem"}>
+              Collections
+            </Heading>
           </Box>
           <Box>
             {optionItems.map((el) => (

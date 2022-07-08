@@ -1,0 +1,39 @@
+.carousalContainer {
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.carouselFlex {
+  max-width: 1200px;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.carouselItemBox {
+  text-align: center;
+}
+
+.carouselItemBox img {
+  margin: auto;
+}
+
+.NewReleases {
+  border-radius: 50%;
+  color: aquamarine;
+  width: 70px;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.carouselItemName {
+  font-family: Lato, Noto Sans, Noto Sans JP, Noto Sans KR, Noto Sans SC,
+    Noto Sans TC, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.carouselItemName:hover {
+    color: rgb(216, 76, 31);
+}
