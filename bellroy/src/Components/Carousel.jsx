@@ -1,7 +1,34 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { Pagination, Scrollbar } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css";
 import "./Carousel.css";
 export const Carousel = () => {
+  // states for different screen sizes
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isTab, setIsTab] = useState(false);
+  const [isMob, setIsMob] = useState(false);
+
+  const screenType = () => {
+    setIsDesktop(window.innerWidth > 1080);
+    setIsTab(window.innerWidth <= 1080);
+    setIsMob(window.innerWidth < 780);
+  };
+
+  useEffect(() => {
+    screenType();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", screenType);
+    return () => {
+      // cleanup function
+      window.removeEventListener("resize", screenType);
+    };
+  });
   const data = [
     {
       image:
@@ -50,20 +77,44 @@ export const Carousel = () => {
     },
   ];
   return (
-    <Box className="carousalContainer">
-      <Heading fontSize={'1.2rem'}>SHOP BY CATEGORY</Heading>
-      <Flex className='carouselFlex'>
-        {data.map((el) => (
-          <Box className='carouselItemBox'>
-            <img
-              srcSet={el.image}
-              className={el.name.split(" ").join("")}
-              alt={el.name}
-            />
-            <Text className="carouselItemName">{el.name}</Text>
-          </Box>
-        ))}
-      </Flex>
+    <Box className='carousalContainer'>
+      <Heading fontSize={"1.2rem"}>SHOP BY CATEGORY</Heading>
+      {isDesktop && (
+        <Flex className='carouselFlex'>
+          {data.map((el) => (
+            <Box key={el.name} className='carouselItemBox'>
+              <img
+                srcSet={el.image}
+                className={el.name.split(" ").join("")}
+                alt={el.name}
+              />
+              <Text className='carouselItemName'>{el.name}</Text>
+            </Box>
+          ))}
+        </Flex>
+      )}
+      {isTab && (
+        <Swiper
+          modules={[Pagination, Scrollbar]}
+          spaceBetween={1}
+          slidesPerView={3}
+          pagination={{ clickable: true }}
+          onSlideChange={() => console.log("slide change")}
+        >
+          {data.map((el) => (
+            <SwiperSlide className='carouselItemBox' key={el.name}>
+              <img
+                srcSet={el.image}
+                className={el.name.split(" ").join("")}
+                alt={el.name}
+              />
+              <Text className='carouselItemName'>{el.name}</Text>
+              <br />
+              {!isMob && <br />}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </Box>
   );
 };

@@ -35,5 +35,15 @@
 }
 
 .carouselItemName:hover {
-    color: rgb(216, 76, 31);
+  color: rgb(216, 76, 31);
+}
+
+.swiper {
+  width: 70%;
+}
+
+@media only screen and (max-width: 780px) {
+  .swiper {
+    width: 90%;
+  }
 }
