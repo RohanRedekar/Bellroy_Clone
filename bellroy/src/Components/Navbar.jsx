@@ -95,7 +95,7 @@ const DesktopView = ({ navLinks }) => {
         </Text>
       </Flex>
       <Box>
-        <Flex gap={"3rem"}>
+        <Flex height={'4.5rem'} gap={"3rem"} paddingBottom='0.8rem'>
           <Box marginLeft={"2rem"}>
             <Image
               marginTop={"-2rem"}
