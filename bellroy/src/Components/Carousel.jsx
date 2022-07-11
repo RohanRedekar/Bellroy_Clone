@@ -1,84 +1,33 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Pagination, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css";
 import "./Carousel.css";
+import { carouselImgData as data } from "./Images";
+import { ViewportContext } from "../Contexts/ViewportContext";
 export const Carousel = () => {
+  const { width } = useContext(ViewportContext);
   // states for different screen sizes
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTab, setIsTab] = useState(false);
   const [isMob, setIsMob] = useState(false);
 
   const screenType = () => {
-    setIsDesktop(window.innerWidth > 1080);
-    setIsTab(window.innerWidth <= 1080);
-    setIsMob(window.innerWidth < 780);
+    setIsDesktop(width > 1080);
+    setIsTab(width <= 1080);
+    setIsMob(width < 780);
   };
-
   useEffect(() => {
     screenType();
-  }, []);
+  }, [width]);
 
-  useEffect(() => {
-    window.addEventListener("resize", screenType);
-    return () => {
-      // cleanup function
-      window.removeEventListener("resize", screenType);
-    };
-  });
-  const data = [
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5681/menu-icons-mens-wallets.jpg?auto=format&fit=max&w=95",
-      name: "Men's Wallets",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5682/menu-icons-womens.jpg?auto=format&fit=max&w=95",
-      name: "Women's Wallets",
-    },
-    {
-      image:
-        "	https://bellroy.imgix.net/cms_images/5683/menu-icons-bags.jpg?auto=format&fit=max&w=95",
-      name: "Backpacks",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5684/menu-icons-crossbody.jpg?auto=format&fit=max&w=95",
-      name: "Crossbody Bags",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5688/menu-icons-phone-cases.jpg?auto=format&fit=max&w=95",
-      name: "Phone & Laptop Cases",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5689/menu-icons-accessories.jpg?auto=format&fit=max&w=95",
-      name: "Work Accessories",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/5687/menu-icons-keys.jpg?auto=format&fit=max&w=95",
-      name: "Key Holders",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/6229/shop-all-icon.jpeg?auto=format&fit=max&w=95",
-      name: "Shop All",
-    },
-    {
-      image:
-        "https://bellroy.imgix.net/cms_images/6686/nav-icon-new-releases.jpeg?auto=format&fit=max&w=95",
-      name: "New Releases",
-    },
-  ];
   return (
     <Box className='carousalContainer'>
       <Heading fontSize={"1.2rem"}>SHOP BY CATEGORY</Heading>
+      {/* DeskTop View */}
       {isDesktop && (
         <Flex className='carouselFlex'>
           {data.map((el) => (
@@ -93,6 +42,7 @@ export const Carousel = () => {
           ))}
         </Flex>
       )}
+      {/* Tab and Mobile View */}
       {isTab && (
         <Swiper
           modules={[Pagination, Scrollbar]}

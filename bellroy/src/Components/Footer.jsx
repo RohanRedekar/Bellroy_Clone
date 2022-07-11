@@ -94,32 +94,7 @@ export const Footer = () => {
             );
           })}
           <GridItem className='lgContainer'>
-            <Grid className='logoGrid'>
-              <Box>
-                <Instagram />
-              </Box>
-              <Box>
-                <Facebook />
-              </Box>
-              <Box>
-                <Youtube />
-              </Box>
-              <Box>
-                <LinkedIn />
-              </Box>
-              <Box>
-                <Pinterest />
-              </Box>
-              <Box>
-                <Twitter />
-              </Box>
-              <Box>
-                <ShareChat />
-              </Box>
-              <Box>
-                <Carriology />
-              </Box>
-            </Grid>
+            <LogoGrid />
           </GridItem>
         </Grid>
       </Box>
@@ -127,37 +102,12 @@ export const Footer = () => {
         className='blackContainer mobFooter'
         display={["block", "block", "none", "none", "none", "none"]}
       >
-        <Grid className='logoGrid'>
-          <Box>
-            <Instagram />
-          </Box>
-          <Box>
-            <Facebook />
-          </Box>
-          <Box>
-            <Youtube />
-          </Box>
-          <Box>
-            <LinkedIn />
-          </Box>
-          <Box>
-            <Pinterest />
-          </Box>
-          <Box>
-            <Twitter />
-          </Box>
-          <Box>
-            <ShareChat />
-          </Box>
-          <Box>
-            <Carriology />
-          </Box>
-        </Grid>
+        <LogoGrid />
         <Accordion allowToggle>
           {Object.keys(Content).map((el) => {
             return (
               <AccordionItem key={el}>
-                <h2 className="footerTitles">
+                <h2 className='footerTitles'>
                   <AccordionButton>
                     <Box flex='1' textAlign='left'>
                       {el}
@@ -167,7 +117,9 @@ export const Footer = () => {
                 </h2>
                 <AccordionPanel pb={4}>
                   {Content[el].map((e) => (
-                    <Text padding={'5px 0 5px 0'} key={e}>{e}</Text>
+                    <Text padding={"5px 0 5px 0"} key={e}>
+                      {e}
+                    </Text>
                   ))}
                 </AccordionPanel>
               </AccordionItem>
@@ -194,5 +146,36 @@ export const Footer = () => {
         </Flex>
       </Box>
     </Box>
+  );
+};
+
+const LogoGrid = () => {
+  return (
+    <Grid className='logoGrid'>
+      <Box>
+        <Instagram />
+      </Box>
+      <Box>
+        <Facebook />
+      </Box>
+      <Box>
+        <Youtube />
+      </Box>
+      <Box>
+        <LinkedIn />
+      </Box>
+      <Box>
+        <Pinterest />
+      </Box>
+      <Box>
+        <Twitter />
+      </Box>
+      <Box>
+        <ShareChat />
+      </Box>
+      <Box>
+        <Carriology />
+      </Box>
+    </Grid>
   );
 };
