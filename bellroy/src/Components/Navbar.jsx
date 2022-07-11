@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import {
   Box,
@@ -21,43 +21,40 @@ import {
   Center,
   Heading,
   Grid,
-  GridItem,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
 import { BiSearch, BiMenu } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ViewportContext } from "../Contexts/ViewportContext";
 
- const StyledPtag = styled.p`
-   &:hover {
-     color: #cc7133;
-   }
- `;
+const StyledPtag = styled.p`
+  &:hover {
+    color: #cc7133;
+  }
+`;
 
 export const Navbar = () => {
   // states for different screen sizes
+  const { width } = useContext(ViewportContext);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTab, setIsTab] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const screenType = () => {
-    setIsDesktop(window.innerWidth >= 1200);
-    setIsTab(window.innerWidth > 600 && window.innerWidth < 1200);
-    setIsMobile(window.innerWidth < 600);
+    setIsDesktop(width >= 1200);
+    setIsTab(width > 600 && width < 1200);
+    setIsMobile(width < 600);
   };
 
   useEffect(() => {
     screenType();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("resize", screenType);
-    return () => {
-      // cleanup function
-      window.removeEventListener("resize", screenType);
-    };
-  });
+  }, [width]);
 
   const navLinks = [
     "Wallets",
@@ -95,7 +92,7 @@ const DesktopView = ({ navLinks }) => {
         </Text>
       </Flex>
       <Box>
-        <Flex height={'4.5rem'} gap={"3rem"} paddingBottom='0.8rem'>
+        <Flex height={"4.5rem"} gap={"3rem"} paddingBottom='0.8rem'>
           <Box marginLeft={"2rem"}>
             <Image
               marginTop={"-2rem"}
@@ -120,17 +117,27 @@ const DesktopView = ({ navLinks }) => {
             </Flex>
             <Flex color={"#8c8b8b"} marginRight={"1rem"} alignItems={"center"}>
               <Link to={"/help"}>
-                <Text fontSize='0.8rem' letterSpacing='1px' width={"3rem"}>
+                <Text
+                  _hover={{ color: "#cc7133" }}
+                  fontSize='0.8rem'
+                  letterSpacing='1px'
+                  width={"3rem"}
+                >
                   Help
                 </Text>
               </Link>
-              <Text fontSize='0.8rem' letterSpacing='1px' width={"7rem"}>
+              <Text
+                _hover={{ color: "#cc7133" }}
+                fontSize='0.8rem'
+                letterSpacing='1px'
+                width={"7rem"}
+              >
                 Find In-Store
               </Text>
               <Box>
                 <PopupModel />
               </Box>
-              <Button backgroundColor={"white"}>
+              <Button _hover={false} backgroundColor={"white"}>
                 <BiSearch fontSize={"1.9rem"} />
               </Button>
               <Box style={{ transform: "translateY(-3px)" }}>
@@ -177,7 +184,7 @@ function PopupModel() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button fontSize={"1.9rem"} backgroundColor={"white"} onClick={onOpen}>
+      <Button _hover={false} fontSize={"1.9rem"} backgroundColor={"white"} onClick={onOpen}>
         <HiOutlineMail />
       </Button>
 
@@ -204,6 +211,7 @@ function ShowCartItems() {
         fontSize={"1.5rem"}
         backgroundColor='white'
         onClick={onOpen}
+        _hover={false}
       >
         <BsCart2 />
       </Button>
@@ -337,35 +345,45 @@ function ShowOptions({ navLinks }) {
               Collections
             </Heading>
           </Box>
-          <Box>
+          <Accordion allowToggle>
             {optionItems.map((el) => (
-              <Box>
-                <Flex
-                  borderBottom={"1px solid white"}
-                  justifyContent={"space-between"}
-                  bg={"rgb(239,239,239)"}
-                >
-                  <Text padding={"0.8rem 1.5rem"}>{el.title}</Text>
-                  <ChevronDownIcon fontSize={"2xl"} margin={"0.8rem 1rem"} />
-                </Flex>
-                <Grid
-                  marginLeft={"0.8rem"}
-                  gap='10px'
-                  templateColumns='repeat(2, 1fr)'
-                  padding={"0.8rem"}
-                  display='none'
-                >
-                  {el.subTitles.map((sub) => (
-                    <GridItem fontSize={"0.8rem"}>
-                      <Text letterSpacing='1px' fontFamily={"Lato,sans-serif"}>
+              //
+              <AccordionItem>
+                <h2>
+                  <AccordionButton
+                    _hover={false}
+                    height={"3.5rem"}
+                    bg={"rgb(239,239,239)"}
+                  >
+                    <Box flex='1' textAlign='left'>
+                      <Text
+                        fontWeight={"600"}
+                        fontSize='1.2rem'
+                        marginLeft={"10px"}
+                      >
+                        {el.title}
+                      </Text>
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={3} pt={5}>
+                  <Grid marginLeft={"10px"} gridTemplateColumns={"1fr 1fr"}>
+                    {el.subTitles.map((sub) => (
+                      <Text
+                        letterSpacing='1.5px'
+                        fontSize='0.8rem'
+                        fontFamily={"'Lato',sans-serif"}
+                        lineHeight='2rem'
+                      >
                         {sub}
                       </Text>
-                    </GridItem>
-                  ))}
-                </Grid>
-              </Box>
+                    ))}
+                  </Grid>
+                </AccordionPanel>
+              </AccordionItem>
             ))}
-          </Box>
+          </Accordion>
         </DrawerContent>
       </Drawer>
     </>
