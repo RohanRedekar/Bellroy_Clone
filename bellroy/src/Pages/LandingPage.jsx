@@ -1,19 +1,21 @@
-import { Box } from '@chakra-ui/react'
-import React from 'react'
-import { Banner } from '../Components/Banner'
-import { Carousel } from '../Components/Carousel'
-import { Footer } from '../Components/Footer'
-import { Navbar } from '../Components/Navbar'
-import { Posters } from '../Components/Posters'
+import { Box } from "@chakra-ui/react";
+import React from "react";
+import { Banner } from "../Components/Banner";
+import { Carousel } from "../Components/Carousel";
+import { Footer } from "../Components/Footer";
+import { Navbar } from "../Components/Navbar";
+import { Posters } from "../Components/Posters";
+import { YoutubeEmbed } from "../Components/YoutubeEmbed";
 
 export const LandingPage = () => {
   return (
     <Box>
-        <Navbar/>
-        <Banner/>
-        <Carousel/>
-        <Posters/>
-        <Footer/>
+      <Navbar />
+      <Banner />
+      <Carousel />
+      <Posters />
+      <YoutubeEmbed />
+      <Footer />
     </Box>
-  )
-}
+  );
+};
