@@ -6,8 +6,8 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css";
 import "./Carousel.css";
-import { carouselImgData as data } from "./Images";
-import { ViewportContext } from "../Contexts/ViewportContext";
+import { carouselImgData as data } from "../Images";
+import { ViewportContext } from "../../Contexts/ViewportContext";
 export const Carousel = () => {
   const { width } = useContext(ViewportContext);
   // states for different screen sizes
@@ -15,12 +15,12 @@ export const Carousel = () => {
   const [isTab, setIsTab] = useState(false);
   const [isMob, setIsMob] = useState(false);
 
-  const screenType = () => {
-    setIsDesktop(width > 1080);
-    setIsTab(width <= 1080);
-    setIsMob(width < 780);
-  };
   useEffect(() => {
+    const screenType = () => {
+      setIsDesktop(width > 1080);
+      setIsTab(width <= 1080);
+      setIsMob(width < 780);
+    };
     screenType();
   }, [width]);
 

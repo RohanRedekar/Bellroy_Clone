@@ -48,6 +48,7 @@ export const carouselImgData = [
     },
   ];
 
+//Footer Images 
 export const CertifiedImage1 = () => {
   return (
     <img
@@ -199,3 +200,296 @@ export const Poster6 = () => {
       " alt="Poster6"></img>
   )
 }
+
+// Banner Images
+// *********  Left Images for Desktop view  ********
+
+export const LeftImage1 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='LeftImage1'
+      />
+    </figure>
+  );
+}
+export const LeftImage2 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2A.v2.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='LeftImage2'
+      />
+    </figure>
+  );
+}
+export const LeftImage3 = () => {
+  return (
+    <figure class="mobile-none">
+      
+      <img loading="eager" src="https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max" sizes="50vw" srcset="
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02a.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    " alt="LeftImage3"/>
+    </figure>
+  );
+}
+export const LeftImage4 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1A.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='LeftImage4'
+      />
+    </figure>
+  );
+}
+
+// *********  Right Images for Desktop view  ********
+
+export const RightImage1 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4B.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='RightImage1'
+      />
+    </figure>
+  );
+};
+export const RightImage2 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-2B.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='RightImage2'
+      />
+    </figure>
+  );
+};
+export const RightImage3 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-desktop-banner_02b.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='RightImage3'
+      />
+    </figure>
+  );
+};
+export const RightImage4 = () => {
+  return (
+    <figure class='mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max'
+        sizes='50vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=65 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=65 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=65 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=65 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=65 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=65 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1B.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=65 1100w
+    '
+        alt='RightImage4'
+      />
+    </figure>
+  );
+};
+
+// **********  Mobile view Images **********
+
+export const DualImage1 = () => {
+  return (
+    <figure class='gt-mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max'
+        sizes='100vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=60 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=60 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=60 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=60 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=60 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=60 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=60 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=60 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=60 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=60 1100w
+    '
+        alt='DualImage1'
+      />
+    </figure>
+  );
+};
+export const DualImage2 = () => {
+  return (
+    <figure class='gt-mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max'
+        sizes='100vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=60 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=60 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=60 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=60 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=60 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=60 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=60 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=60 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=60 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-03.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=60 1100w
+    '
+        alt='DualImage2'
+      />
+    </figure>
+  );
+};
+export const DualImage3 = () => {
+  return (
+    <figure class='gt-mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max'
+        sizes='100vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=60 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=60 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=60 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=60 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=60 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=60 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=60 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=60 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=60 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-mobile-banner-02.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=60 1100w
+    '
+        alt='DualImage3'
+      />
+    </figure>
+  );
+};
+export const DualImage4 = () => {
+  return (
+    <figure class='gt-mobile-none'>
+      <img
+        loading='eager'
+        src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max'
+        sizes='100vw'
+        srcset='
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=60 200w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=60 300w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=60 400w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=500&amp;q=60 500w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=600&amp;q=60 600w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=700&amp;q=60 700w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=800&amp;q=60 800w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=900&amp;q=60 900w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=1000&amp;q=60 1000w,
+        https://bellroy-cms-images.imgix.net/new-releases-homepage-image-1.jpg?auto=format&amp;fit=max&amp;w=1100&amp;q=60 1100w
+    '
+        alt='DualImage4'
+      />
+    </figure>
+  );
+};

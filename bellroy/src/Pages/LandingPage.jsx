@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import { Banner } from "../Components/Banner";
-import { Carousel } from "../Components/Carousel";
+import { Banner } from "../Components/Banner/Banner";
+import { Carousel } from "../Components/Carousel/Carousel";
 import { Footer } from "../Components/Footer";
 import { Navbar } from "../Components/Navbar";
 import { Posters } from "../Components/Posters";
