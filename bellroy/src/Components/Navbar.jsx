@@ -110,7 +110,7 @@ const DesktopView = ({ navLinks }) => {
               fontWeight='bold'
             >
               {navLinks.map((el, i) => (
-                <Link key={i} to={"/products"}>
+                <Link key={i} to={`/products/${el}`}>
                   <StyledPtag>{el}</StyledPtag>
                 </Link>
               ))}

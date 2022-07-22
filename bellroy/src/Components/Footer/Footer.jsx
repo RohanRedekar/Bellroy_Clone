@@ -20,9 +20,9 @@ import {
   ShareChat,
   Twitter,
   Youtube,
-} from "./Svgs";
+} from "../Svgs";
 import "./Footer.css";
-import { CertifiedImage1, CertifiedImage2 } from "./Images";
+import { CertifiedImage1, CertifiedImage2 } from "../Images";
 const Content = {
   HELP: [
     "Customer Care",

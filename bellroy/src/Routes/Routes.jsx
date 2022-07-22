@@ -8,7 +8,7 @@ export const NavRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<LandingPage />} />
-      <Route path='/products' element={<ProductPage />} />
+      <Route path='/products/wallets' element={<ProductPage />} />
     </Routes>
   );
 };
