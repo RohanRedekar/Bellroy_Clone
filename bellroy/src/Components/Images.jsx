@@ -211,7 +211,7 @@ export const LeftImage1 = () => {
         loading='eager'
         src='https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max'
         sizes='50vw'
-        srcset='
+        srcSet='
         https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=200&amp;q=65 200w,
         https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=300&amp;q=65 300w,
         https://bellroy-cms-images.imgix.net/new-releases-homepage-image-4A.jpg?auto=format&amp;fit=max&amp;w=400&amp;q=65 400w,

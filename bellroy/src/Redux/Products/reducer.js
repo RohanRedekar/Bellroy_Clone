@@ -6,7 +6,6 @@ const initState = {
 };
 
 export const ProductReducer = (state = initState, { type, payload }) => {
-  console.log(payload);
   switch (type) {
     case actionsTypes.GET_PRODUCTS_REQUEST:
       return {
@@ -28,17 +27,14 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         error: payload,
       };
     case actionsTypes.CHANGE_COLOUR:
+      console.log(state);
       return {
         ...state,
-        loading: false,
-        error: "",
-        products: [
-          ...state.productData.products,
-          (state.productData.products[payload.index1].selectedColour =
-            payload.color),
-          (state.productData.products[payload.index1].imgIndex =
-            payload.index2),
-        ],
+        products: state.products.map((p, i) =>
+          i === payload.index1
+            ? { ...p, selectedColour: payload.color, imgIndex: payload.index2 }
+            : p
+        ),
       };
     default:
       return state;

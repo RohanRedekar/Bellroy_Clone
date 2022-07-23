@@ -29,14 +29,23 @@ export const changeColour = (payload) => ({
 });
 
 // Data fetching and dispatching actions
+// export const getProducts = (prod) => (dispatch) => {
+//   dispatch(getProductsRequest());
+//   axios({
+//     method: "GET",
+//     url: `https://bellroy-backend.herokuapp.com/${prod}`,
+//   })
+//     .then((data) => dispatch(getProductsSuccess(data.data.wallet)))
+//     .catch((err) => dispatch(getProductsFailure(err)));
+// };
+
 export const getProducts = (prod) => (dispatch) => {
   dispatch(getProductsRequest());
   axios({
     method: "GET",
-    url: `https://bellroy-backend.herokuapp.com/${prod}`,
+    url: `http://localhost:8080/products`,
   })
-    .then((data) => dispatch(getProductsSuccess(data.data.wallet)))
+    .then((data) => dispatch(getProductsSuccess(data.data)))
     .catch((err) => dispatch(getProductsFailure(err)));
 };
-
 
