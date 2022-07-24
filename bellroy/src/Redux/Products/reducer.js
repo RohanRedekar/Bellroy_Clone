@@ -3,6 +3,7 @@ const initState = {
   loading: false,
   products: [],
   error: "",
+  product: {},
 };
 
 export const ProductReducer = (state = initState, { type, payload }) => {
@@ -27,7 +28,6 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         error: payload,
       };
     case actionsTypes.CHANGE_COLOUR:
-      console.log(state);
       return {
         ...state,
         products: state.products.map((p, i) =>
@@ -35,6 +35,11 @@ export const ProductReducer = (state = initState, { type, payload }) => {
             ? { ...p, selectedColour: payload.color, imgIndex: payload.index2 }
             : p
         ),
+      };
+    case actionsTypes.PICK_SELECTED_PRODUCT:
+      return {
+        ...state,
+        product: state.products[payload],
       };
     default:
       return state;

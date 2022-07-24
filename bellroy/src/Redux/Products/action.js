@@ -6,6 +6,7 @@ export const actionsTypes = {
   GET_PRODUCTS_SUCCESS: "GET_PRODUCTS_SUCCESS",
   GET_PRODUCTS_FAILURE: "GET_PRODUCTS_FAILURE",
   CHANGE_COLOUR: "CHANGE_COLOUR",
+  PICK_SELECTED_PRODUCT: "PICK_SELECTED_PRODUCT",
 };
 
 // Actions
@@ -28,24 +29,18 @@ export const changeColour = (payload) => ({
   payload,
 });
 
-// Data fetching and dispatching actions
-// export const getProducts = (prod) => (dispatch) => {
-//   dispatch(getProductsRequest());
-//   axios({
-//     method: "GET",
-//     url: `https://bellroy-backend.herokuapp.com/${prod}`,
-//   })
-//     .then((data) => dispatch(getProductsSuccess(data.data.wallet)))
-//     .catch((err) => dispatch(getProductsFailure(err)));
-// };
+export const pickSelectedProduct = (payload) => ({
+  type: actionsTypes.PICK_SELECTED_PRODUCT,
+  payload,
+});
 
+// Data fetching and dispatching actions
 export const getProducts = (prod) => (dispatch) => {
   dispatch(getProductsRequest());
   axios({
     method: "GET",
-    url: `http://localhost:8080/products`,
+    url: `https://bellroy-backend.herokuapp.com/${prod}`,
   })
-    .then((data) => dispatch(getProductsSuccess(data.data)))
+    .then((data) => dispatch(getProductsSuccess(data.data.wallet)))
     .catch((err) => dispatch(getProductsFailure(err)));
 };
-

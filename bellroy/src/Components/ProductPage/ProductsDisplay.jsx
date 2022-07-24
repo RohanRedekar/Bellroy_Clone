@@ -1,25 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Box, Flex, Grid, Image, Stack, Text } from "@chakra-ui/react";
 import {
-  Box,
-  Flex,
-  Grid,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { getProducts, changeColour } from "../../Redux/Products/action";
+  getProducts,
+  changeColour,
+  pickSelectedProduct,
+} from "../../Redux/Products/action";
 
 export const ProductsDisplay = () => {
   const location = useLocation();
   const path = location.pathname.split("/");
   const currRoute = path[path.length - 1].toLowerCase();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const data = useSelector((store) => store.productData.products);
   useEffect(() => {
     dispatch(getProducts(currRoute));
-  }, [currRoute, dispatch]);
+  }, [currRoute, dispatch, navigate]);
 
   const handleColour = (color, index1, index2) => {
     let change = {
@@ -28,6 +26,12 @@ export const ProductsDisplay = () => {
       index2: index2,
     };
     dispatch(changeColour(change));
+  };
+
+  const handleRouting = (idx, title) => {
+    title = title.split(" ").join("-");
+    dispatch(pickSelectedProduct(idx));
+    navigate(`/products/wallets/${title}`);
   };
 
   return (
@@ -42,7 +46,10 @@ export const ProductsDisplay = () => {
           return (
             <Box backgroundColor={"#f7f7f7"} width={"100%"} key={el._id}>
               <Flex width={"100%"} justifyContent='center'>
-                <Image srcSet={el?.colouredWalletImages[el.imgIndex]} />
+                <Image
+                  onClick={() => handleRouting(idx, el.title)}
+                  srcSet={el?.colouredWalletImages[el.imgIndex]}
+                />
               </Flex>
               <Flex flexDirection={"column"} justifyContent='space-between'>
                 {/*Mapping Coloured Checkboxes */}
@@ -51,7 +58,12 @@ export const ProductsDisplay = () => {
                   justifyContent={"center"}
                   marginBottom='30px'
                 >
-                  <Stack paddingTop={"1rem"} spacing={3} direction={"row"}>
+                  <Stack
+                    userSelect={"none"}
+                    paddingTop={"1rem"}
+                    spacing={3}
+                    direction={"row"}
+                  >
                     {el?.colors.map((c, i) => (
                       <Box key={i}>
                         <Flex
@@ -72,7 +84,6 @@ export const ProductsDisplay = () => {
                             {...(el.selectedColour === c
                               ? { height: "13px" }
                               : { height: "17px" })}
-                            // height='17px'
                             borderRadius={"50%"}
                             backgroundColor={`#${c}`}
                           ></Box>
