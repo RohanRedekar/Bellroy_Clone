@@ -10,7 +10,7 @@ export const NavRoutes = () => {
     <Routes>
       <Route path='/' element={<LandingPage />} />
       <Route path='/products/wallets' element={<ProductPage />} />
-      <Route path='/products/wallets/:name' element={<SingleProductPage />} />
+      <Route path='/products/:category/:title' element={<SingleProductPage />} />
     </Routes>
   );
 };

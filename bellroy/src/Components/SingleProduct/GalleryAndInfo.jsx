@@ -15,10 +15,10 @@ export const GalleryAndDescr = () => {
         margin={"0 auto"}
       >
         <Box>
-          <ProductGallery product={product} />
+          <ProductGallery />
         </Box>
         <Box>
-          <ProductInfo product={product} />
+          <ProductInfo />
         </Box>
       </Grid>
       <Flex justifyContent={"center"}>

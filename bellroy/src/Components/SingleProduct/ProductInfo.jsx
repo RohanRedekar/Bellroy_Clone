@@ -11,9 +11,10 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export const ProductInfo = (data) => {
-  const product = data.product;
+  const product = useSelector((store) => store.productData.product);
   return (
     <Box color='#333'>
       <Text
@@ -43,13 +44,13 @@ export const ProductInfo = (data) => {
         DESIGN INSIGHTS
       </Text>
       <UnorderedList>
-        {product.pointers.map((p,i) => (
+        {product?.pointers?.map((p,i) => (
           <ListItem key={i} fontSize={"0.9rem"} color='#696969'>
             {p}
           </ListItem>
         ))}
       </UnorderedList>
-      <Accordion marginTop={"8px"} defaultIndex={[0]} allowMultiple>
+      <Accordion marginTop={"8px"} allowMultiple>
         <AccordionItem>
           <h2>
             <AccordionButton>
@@ -68,7 +69,7 @@ export const ProductInfo = (data) => {
           </h2>
           <AccordionPanel pb={4}>
             <UnorderedList color='#696969' marginTop={"3px"}>
-              {product.specifications.map((p,i) => (
+              {product?.specifications?.map((p,i) => (
                 <ListItem key={i} marginLeft={"-1rem"} fontSize={"0.8rem"}>
                   {p}
                 </ListItem>

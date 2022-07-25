@@ -1,23 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box, Flex, Grid, Image, Stack, Text } from "@chakra-ui/react";
-import {
-  getProducts,
-  changeColour,
-  pickSelectedProduct,
-} from "../../Redux/Products/action";
+import { changeColour } from "../../Redux/Products/action";
 
 export const ProductsDisplay = () => {
-  const location = useLocation();
-  const path = location.pathname.split("/");
-  const currRoute = path[path.length - 1].toLowerCase();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname.split("/");
+  const currRoute = path[path.length - 1];
   const data = useSelector((store) => store.productData.products);
-  useEffect(() => {
-    dispatch(getProducts(currRoute));
-  }, [currRoute, dispatch, navigate]);
 
   const handleColour = (color, index1, index2) => {
     let change = {
@@ -28,10 +21,12 @@ export const ProductsDisplay = () => {
     dispatch(changeColour(change));
   };
 
-  const handleRouting = (idx, title) => {
+  const handleRouting = (title, color) => {
     title = title.split(" ").join("-");
-    dispatch(pickSelectedProduct(idx));
-    navigate(`/products/wallets/${title}`);
+    navigate({
+      pathname: `/products/${currRoute}/${title}`,
+      search: `?color=${color}`,
+    });
   };
 
   return (
@@ -42,17 +37,16 @@ export const ProductsDisplay = () => {
         gridGap={"10px"}
       >
         {/* Mapping all wallets */}
-        {data.map((el, idx) => {
+        {data?.map((el, idx) => {
           return (
             <Box backgroundColor={"#f7f7f7"} width={"100%"} key={el._id}>
               <Flex width={"100%"} justifyContent='center'>
                 <Image
-                  onClick={() => handleRouting(idx, el.title)}
-                  srcSet={el?.colouredWalletImages[el.imgIndex]}
+                  onClick={() => handleRouting(el.title, el.selectedColour)}
+                  src={el?.colouredWalletImages[el.imgIndex]}
                 />
               </Flex>
               <Flex flexDirection={"column"} justifyContent='space-between'>
-                {/*Mapping Coloured Checkboxes */}
                 <Flex
                   width={"100%"}
                   justifyContent={"center"}
@@ -64,6 +58,7 @@ export const ProductsDisplay = () => {
                     spacing={3}
                     direction={"row"}
                   >
+                    {/*Mapping Coloured Checkboxes */}
                     {el?.colors.map((c, i) => (
                       <Box key={i}>
                         <Flex

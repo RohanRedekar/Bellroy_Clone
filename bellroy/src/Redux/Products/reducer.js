@@ -36,10 +36,23 @@ export const ProductReducer = (state = initState, { type, payload }) => {
             : p
         ),
       };
-    case actionsTypes.PICK_SELECTED_PRODUCT:
+    case actionsTypes.PICK_SELECTED_PRODUCT_REUQEST:
       return {
         ...state,
-        product: state.products[payload],
+        loading: true,
+        error: "",
+      };
+    case actionsTypes.PICK_SELECTED_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        product: payload,
+        loading: false,
+      };
+    case actionsTypes.PICK_SELECTED_PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        err: payload,
       };
     default:
       return state;
