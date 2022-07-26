@@ -11,11 +11,10 @@ export const SingleProductPage = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.split("/");
-  const category = path[path.length - 2];
   const title = path[path.length - 1];
   useEffect(() => {
-    dispatch(getSelectedProduct(category,title));
-  }, [title,category, dispatch]);
+    dispatch(getSelectedProduct(title));
+  }, [title, dispatch]);
   return (
     <Box>
       <Navbar />

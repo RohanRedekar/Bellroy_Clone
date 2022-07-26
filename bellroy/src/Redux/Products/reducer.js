@@ -4,10 +4,12 @@ const initState = {
   products: [],
   error: "",
   product: {},
+  cart:[],
 };
 
 export const ProductReducer = (state = initState, { type, payload }) => {
   switch (type) {
+    // GET_PRODUCTS
     case actionsTypes.GET_PRODUCTS_REQUEST:
       return {
         ...state,
@@ -27,6 +29,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         loading: false,
         error: payload,
       };
+    // CHANGE_COLOUR
     case actionsTypes.CHANGE_COLOUR:
       return {
         ...state,
@@ -36,6 +39,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
             : p
         ),
       };
+    // PICK_SELECTED_PRODUCT
     case actionsTypes.PICK_SELECTED_PRODUCT_REUQEST:
       return {
         ...state,
@@ -53,6 +57,46 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         ...state,
         loading: false,
         err: payload,
+      };
+    // ADD_PRODUCT_CART
+    case actionsTypes.ADD_PRODUCT_CART_REQUEST:
+      return {
+        ...state,
+        error: "",
+        loading: true,
+      };
+    case actionsTypes.ADD_PRODUCT_CART_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        cart: payload,
+        loading: false,
+      };
+    case actionsTypes.ADD_PRODUCT_CART_FAILURE:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
+      };
+    //FETCH_CART
+    case actionsTypes.FETCH_CART_REQUEST:
+      return {
+        ...state,
+        error: "",
+        loading: true,
+      };
+    case actionsTypes.FETCH_CART_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        cart: payload,
+        loading: false,
+      };
+    case actionsTypes.FETCH_CART_FAILURE:
+      return {
+        ...state,
+        error: payload,
+        loading: false,
       };
     default:
       return state;

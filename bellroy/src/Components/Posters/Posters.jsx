@@ -51,8 +51,8 @@ export const Posters = () => {
   return (
     <Box>
       <Grid gridTemplateColumns={{ sm: "1fr", md: "1fr 1fr" }}>
-        {PosterInfo.map((el) => (
-          <GridItem className='gridItem'>
+        {PosterInfo.map((el,i) => (
+          <GridItem key={i} className='gridItem'>
             <el.Poster />
             <Box className="titleContainer" position={{lg:"absolute"}}>
               <Text className={el.class1}>{el.Title1}</Text>

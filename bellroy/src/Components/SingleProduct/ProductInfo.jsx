@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Button,
   Flex,
   ListItem,
   Text,
@@ -34,7 +35,8 @@ export const ProductInfo = (data) => {
           USD
         </Text>
       </Flex>
-      <hr style={{ borderTop: "1px solid #D8D8D8" }} />
+      {/* <hr style={{ borderTop: "1px solid #D8D8D8" }} /> */}
+      <Button letterSpacing={'2px'} w='100%' colorScheme={'orange'} textTransform={'uppercase'}>add to cart</Button>
       <Text
         marginTop={"8px"}
         fontWeight={"600"}

@@ -26,6 +26,7 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Badge
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
@@ -46,14 +47,10 @@ export const Navbar = () => {
   const [isTab, setIsTab] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const screenType = () => {
+  useEffect(() => {
     setIsDesktop(width >= 1200);
     setIsTab(width > 600 && width < 1200);
     setIsMobile(width < 600);
-  };
-
-  useEffect(() => {
-    screenType();
   }, [width]);
 
   const navLinks = [
@@ -212,8 +209,10 @@ function ShowCartItems() {
         backgroundColor='white'
         onClick={onOpen}
         _hover={false}
+        position='relative'
       >
         <BsCart2 />
+        <Badge right={'10px'} top="8px" position={'absolute'} borderRadius={'50%'} bg={"#e15a1d"} color='white'>0</Badge>
       </Button>
       <Drawer
         isOpen={isOpen}
