@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
-import { Navbar } from "../Components/Navbar";
+import { Navbar } from "../Components/Navbar/Navbar";
 import { Footer } from "../Components/Footer/Footer";
 import { GalleryAndDescr } from "../Components/SingleProduct/GalleryAndInfo";
 import { useLocation } from "react-router-dom";

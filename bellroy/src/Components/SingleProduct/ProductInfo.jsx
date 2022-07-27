@@ -11,31 +11,44 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../../Redux/Products/action";
+import { StaticAccordionComp } from "./StaticAccordionComp";
 
 export const ProductInfo = () => {
   const product = useSelector((store) => store.productData.product);
+  const [cartData, setCartData] = useState([]);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchCart(cartData));
+  }, [cartData, dispatch]);
+
+  // Storing Cart item ids in local storage then fetching from database
   const handleCart = (id) => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     if (cartItems.length === 0) {
       let val = { id: id, count: 1 };
       cartItems.push(val);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      setCartData(cartItems);
     } else {
       for (let i = 0; i < cartItems.length; i++) {
         if (cartItems[i].id === id) {
           cartItems[i].count += 1;
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          setCartData(cartItems);
           return;
         }
       }
       let val = { id: id, count: 1 };
       cartItems.push(val);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      setCartData(cartItems);
     }
   };
+
   return (
     <Box color='#333'>
       <Text
@@ -107,60 +120,7 @@ export const ProductInfo = () => {
             </UnorderedList>
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box
-                fontWeight='600'
-                letterSpacing={"1px"}
-                fontSize={"13px"}
-                flex='1'
-                textAlign='left'
-                marginLeft={"-1rem"}
-              >
-                SHIPPING AND RETURNS
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel
-            margin={"3px 0 0 -1rem"}
-            fontSize={"0.9rem"}
-            color='#696969'
-            pb={4}
-          >
-            We offer regular or express shipping to most addresses worldwide.
-            Shipping cost and delivery times are calculated at checkout. Note:
-            P.O. box deliveries will automatically be sent by regular shipping.
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box
-                fontWeight='600'
-                letterSpacing={"1px"}
-                fontSize={"13px"}
-                flex='1'
-                textAlign='left'
-                marginLeft={"-1rem"}
-              >
-                3 YEAR WARRANTY
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel
-            margin={"3px 0 0 -1rem"}
-            fontSize={"0.9rem"}
-            color='#696969'
-            pb={4}
-          >
-            Bellroy products are warranted to be free from defects in materials
-            and workmanship for three years from original date of purchase when
-            used under normal conditions and for the purpose intended.
-          </AccordionPanel>
-        </AccordionItem>
+        <StaticAccordionComp />
       </Accordion>
     </Box>
   );

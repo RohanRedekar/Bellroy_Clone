@@ -104,11 +104,13 @@ export const fetchCartFailure = (payload) => ({
 });
 
 export const fetchCart = (payload) => (dispatch) => {
-  dispatch(fetchCartRequest());
   axios({
     mathod: "GET",
-    url: "https://bellroy-backend.herokuapp.com/products/fetchCart",
-    params: payload,
+    url: "https://bellroy-backend.herokuapp.com/fetchCart",
+    // url: "http://localhost:3001/fetchCart",
+    params: {
+      payload: payload,
+    },
   })
     .then((res) => dispatch(fetchCartSuccess(res.data)))
     .catch((err) => dispatch(fetchCartFailure(err.data)));

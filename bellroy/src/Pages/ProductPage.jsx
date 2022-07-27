@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import { Box, Flex } from "@chakra-ui/react";
-import { Navbar } from "../Components/Navbar";
+import { Navbar } from "../Components/Navbar/Navbar";
 import { Footer } from "../Components/Footer/Footer";
 import { ProductTitle } from "../Components/ProductPage/ProductTitle";
 import { Sidebar } from "../Components/ProductPage/Sidebar";
