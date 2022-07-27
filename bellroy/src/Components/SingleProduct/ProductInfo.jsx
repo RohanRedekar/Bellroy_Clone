@@ -14,8 +14,28 @@ import {
 import React from "react";
 import { useSelector } from "react-redux";
 
-export const ProductInfo = (data) => {
+export const ProductInfo = () => {
   const product = useSelector((store) => store.productData.product);
+
+  const handleCart = (id) => {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    if (cartItems.length === 0) {
+      let val = { id: id, count: 1 };
+      cartItems.push(val);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } else {
+      for (let i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].id === id) {
+          cartItems[i].count += 1;
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          return;
+        }
+      }
+      let val = { id: id, count: 1 };
+      cartItems.push(val);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }
+  };
   return (
     <Box color='#333'>
       <Text
@@ -36,7 +56,15 @@ export const ProductInfo = (data) => {
         </Text>
       </Flex>
       {/* <hr style={{ borderTop: "1px solid #D8D8D8" }} /> */}
-      <Button letterSpacing={'2px'} w='100%' colorScheme={'orange'} textTransform={'uppercase'}>add to cart</Button>
+      <Button
+        onClick={() => handleCart(product._id)}
+        letterSpacing={"2px"}
+        w='100%'
+        colorScheme={"orange"}
+        textTransform={"uppercase"}
+      >
+        add to cart
+      </Button>
       <Text
         marginTop={"8px"}
         fontWeight={"600"}
@@ -46,7 +74,7 @@ export const ProductInfo = (data) => {
         DESIGN INSIGHTS
       </Text>
       <UnorderedList>
-        {product?.pointers?.map((p,i) => (
+        {product?.pointers?.map((p, i) => (
           <ListItem key={i} fontSize={"0.9rem"} color='#696969'>
             {p}
           </ListItem>
@@ -71,7 +99,7 @@ export const ProductInfo = (data) => {
           </h2>
           <AccordionPanel pb={4}>
             <UnorderedList color='#696969' marginTop={"3px"}>
-              {product?.specifications?.map((p,i) => (
+              {product?.specifications?.map((p, i) => (
                 <ListItem key={i} marginLeft={"-1rem"} fontSize={"0.8rem"}>
                   {p}
                 </ListItem>

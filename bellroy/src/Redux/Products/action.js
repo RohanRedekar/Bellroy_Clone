@@ -12,10 +12,6 @@ export const actionsTypes = {
   PICK_SELECTED_PRODUCT_SUCCESS: "PICK_SELECTED_PRODUCT_SUCCESS",
   PICK_SELECTED_PRODUCT_FAILURE: "PICK_SELECTED_PRODUCT_FAILURE",
 
-  ADD_PRODUCT_CART_REQUEST: "ADD_PRODUCT_CART_REQUEST",
-  ADD_PRODUCT_CART_SUCCESS: "ADD_PRODUCT_CART_SUCCESS",
-  ADD_PRODUCT_CART_FAILURE: "ADD_PRODUCT_CART_FAILURE",
-
   FETCH_CART_REQUEST: "FETCH_CART_REQUEST",
   FETCH_CART_SUCCESS: "FETCH_CART_SUCCESS",
   FETCH_CART_FAILURE: "FETCH_CART_FAILURE",
@@ -92,31 +88,9 @@ export const getSelectedProduct = (title) => (dispatch) => {
     .catch((err) => dispatch(pickSelectedProductFailure(err)));
 };
 
-export const addProductCartRequest = () => ({
-  type: actionsTypes.ADD_PRODUCT_CART_REQUEST,
-});
-
-export const addProductCartSuccess = (payload) => ({
-  type: actionsTypes.ADD_PRODUCT_CART_SUCCESS,
-  payload,
-});
-
-export const addProductCartFailure = (payload) => ({
-  type: actionsTypes.ADD_PRODUCT_CART_FAILURE,
-  payload,
-});
-
-export const addProductCart = (product) => (dispatch) => {
-  dispatch(addProductCartRequest());
-  axios.post("/cart", product)
-    .then((res) => dispatch(addProductCartSuccess(res.data)))
-    .catch((err) => dispatch(addProductCartFailure(err.data)));
-};
-
-//
-export const fetchCartRequest = (payload) => ({
+//fetching Cart
+export const fetchCartRequest = () => ({
   type: actionsTypes.FETCH_CART_REQUEST,
-  payload,
 });
 
 export const fetchCartSuccess = (payload) => ({
@@ -131,7 +105,11 @@ export const fetchCartFailure = (payload) => ({
 
 export const fetchCart = (payload) => (dispatch) => {
   dispatch(fetchCartRequest());
-  axios.get("/cart")
+  axios({
+    mathod: "GET",
+    url: "https://bellroy-backend.herokuapp.com/products/fetchCart",
+    params: payload,
+  })
     .then((res) => dispatch(fetchCartSuccess(res.data)))
     .catch((err) => dispatch(fetchCartFailure(err.data)));
 };

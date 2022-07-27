@@ -4,7 +4,7 @@ const initState = {
   products: [],
   error: "",
   product: {},
-  cart:[],
+  cart: [],
 };
 
 export const ProductReducer = (state = initState, { type, payload }) => {
@@ -57,26 +57,6 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         ...state,
         loading: false,
         err: payload,
-      };
-    // ADD_PRODUCT_CART
-    case actionsTypes.ADD_PRODUCT_CART_REQUEST:
-      return {
-        ...state,
-        error: "",
-        loading: true,
-      };
-    case actionsTypes.ADD_PRODUCT_CART_SUCCESS:
-      return {
-        ...state,
-        error: "",
-        cart: payload,
-        loading: false,
-      };
-    case actionsTypes.ADD_PRODUCT_CART_FAILURE:
-      return {
-        ...state,
-        error: payload,
-        loading: false,
       };
     //FETCH_CART
     case actionsTypes.FETCH_CART_REQUEST:
