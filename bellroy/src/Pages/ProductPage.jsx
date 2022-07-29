@@ -15,17 +15,17 @@ export const ProductPage = () => {
   const path = location.pathname.split("/");
   const currRoute = path[path.length - 1];
   useEffect(() => {
-    dispatch(getProducts(currRoute));
+    dispatch(getProducts(currRoute,null));
   }, [currRoute, dispatch]);
     return (
-    <Box>
-      <Navbar />
-      <ProductTitle />
-      <Flex>
-        <Sidebar />
-        <ProductsDisplay />
-      </Flex>
-      <Footer />
-    </Box>
-  );
+      <Box>
+        <Navbar />
+        <ProductTitle />
+        <Flex>
+          <Sidebar currRoute={currRoute}/>
+          <ProductsDisplay />
+        </Flex>
+        <Footer />
+      </Box>
+    );
 };

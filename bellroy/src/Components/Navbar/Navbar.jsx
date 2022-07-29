@@ -39,7 +39,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    console.log("cart Items:" ,cartItems)
     dispatch(fetchCart(cartItems));
   }, [dispatch]);
 

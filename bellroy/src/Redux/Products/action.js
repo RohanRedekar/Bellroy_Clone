@@ -40,25 +40,16 @@ export const changeColour = (payload) => ({
 });
 
 // Data fetching and dispatching actions
-export const getProducts = (prod) => (dispatch) => {
+export const getProducts = (prod, colors) => (dispatch) => {
   dispatch(getProductsRequest());
   axios({
     method: "GET",
     url: `https://bellroy-backend.herokuapp.com/products/${prod}`,
+    params: {
+      filter: colors
+    },
   })
-    .then((data) => {
-      prod === "Wallets"
-        ? dispatch(getProductsSuccess(data.data.wallets))
-        : prod === "Bags"
-        ? dispatch(getProductsSuccess(data.data.bags))
-        : prod === "Accessories"
-        ? dispatch(getProductsSuccess(data.data.accessories))
-        : prod === "Tech"
-        ? dispatch(getProductsSuccess(data.data.tech))
-        : prod === "Travel"
-        ? dispatch(getProductsSuccess(data.data.travel))
-        : dispatch(getProductsFailure("No data Found"));
-    })
+    .then((data) => dispatch(getProductsSuccess(data.data.products)))
     .catch((err) => dispatch(getProductsFailure(err)));
 };
 

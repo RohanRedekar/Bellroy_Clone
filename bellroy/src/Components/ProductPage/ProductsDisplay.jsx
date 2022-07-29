@@ -24,7 +24,7 @@ export const ProductsDisplay = () => {
   const handleRouting = (title, color) => {
     title = title.split(" ").join("-");
     navigate({
-      pathname: `/products/${currRoute}/${title}`,
+      pathname: `/product/${currRoute}/${title}`,
       search: `?color=${color}`,
     });
   };

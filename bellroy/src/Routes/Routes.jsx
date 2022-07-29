@@ -9,8 +9,8 @@ export const NavRoutes = () => {
   return (
     <Routes>
       <Route path='/' element={<LandingPage />} />
-      <Route path='/products/wallets' element={<ProductPage />} />
-      <Route path='/products/:category/:title' element={<SingleProductPage />} />
+      <Route path='/products/:category' element={<ProductPage />} />
+      <Route path='/product/:category/:title' element={<SingleProductPage />} />
     </Routes>
   );
 };
