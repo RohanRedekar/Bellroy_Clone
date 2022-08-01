@@ -116,7 +116,7 @@ export const ShowOptions = () => {
           <Accordion allowToggle>
             {optionItems.map((el) => (
               //
-              <AccordionItem>
+              <AccordionItem key={el.title}>
                 <h2>
                   <AccordionButton
                     _hover={false}
@@ -137,8 +137,9 @@ export const ShowOptions = () => {
                 </h2>
                 <AccordionPanel pb={3} pt={5}>
                   <Grid marginLeft={"10px"} gridTemplateColumns={"1fr 1fr"}>
-                    {el.subTitles.map((sub) => (
+                    {el.subTitles.map((sub, i) => (
                       <Text
+                        key={sub + i}
                         letterSpacing='1.5px'
                         fontSize='0.8rem'
                         fontFamily={"'Lato',sans-serif"}

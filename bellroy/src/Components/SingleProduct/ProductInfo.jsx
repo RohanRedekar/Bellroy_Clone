@@ -50,7 +50,7 @@ export const ProductInfo = () => {
   };
 
   return (
-    <Box color='#333'>
+    <Box margin={["10px", "10px", "10px", "auto"]} color='#333'>
       <Text
         fontFamily={"'Frank Ruhl Libre', 'PT Serif', 'serif'"}
         fontSize={"25px"}

@@ -3,7 +3,7 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 
 export const ProductTitle = () => {
   return (
-    <Box backgroundColor={"#f7f7f7"}>
+    <Box margin={{ sm: "0 7px", md: "0 auto" }} backgroundColor={"#f7f7f7"}>
       <Text
         color={"#9B9B9B"}
         fontSize={"0.7rem"}

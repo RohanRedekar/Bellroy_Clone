@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { Footer } from "../Components/Footer/Footer";
@@ -15,17 +15,17 @@ export const ProductPage = () => {
   const path = location.pathname.split("/");
   const currRoute = path[path.length - 1];
   useEffect(() => {
-    dispatch(getProducts(currRoute,null));
+    dispatch(getProducts(currRoute, null));
   }, [currRoute, dispatch]);
-    return (
-      <Box>
-        <Navbar />
-        <ProductTitle />
-        <Flex>
-          <Sidebar currRoute={currRoute}/>
-          <ProductsDisplay />
-        </Flex>
-        <Footer />
-      </Box>
-    );
+  return (
+    <Box>
+      <Navbar />
+      <ProductTitle />
+      <Flex flexDirection={["column", "row"]}>
+        <Sidebar currRoute={currRoute} />
+        <ProductsDisplay />
+      </Flex>
+      <Footer />
+    </Box>
+  );
 };

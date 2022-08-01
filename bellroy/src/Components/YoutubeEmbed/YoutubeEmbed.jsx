@@ -9,17 +9,14 @@ export const YoutubeEmbed = () => (
     backgroundImage='https://bellroy.imgix.net/cms_images/1259/background-texture-repeat.jpg?auto=format&fit=max'
     height={["350px", "400px", "450px", "500px", "600px", "650px"]}
   >
-    <Box
-      width={["95%", "88%", "80%", "72%", "65%", "55%"]}
-    >
+    <Box width={["95%", "88%", "80%", "72%", "65%", "55%"]}>
       <Box className='videoResponsive'>
         <iframe
           width='853'
           height='480'
           loading='lazy'
-          src={`https://www.youtube-nocookie.com/embed/w1uA0R9_mnU?autoplay=1&loop=1&playlist=w1uA0R9_mnU&origin=bellroy.com&modestbranding=1&showinfo=0&rel=0&version=3&mute=1`}
+          src={`https://www.youtube.com/embed/w1uA0R9_mnU?list=TLGGJGBnd-igeV4yOTA3MjAyMg`}
           frameBorder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
           title='Embedded youtube'
         />

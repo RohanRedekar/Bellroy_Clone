@@ -11,7 +11,7 @@ export const GalleryAndDescr = () => {
       <Grid
         maxWidth={"1150px"}
         gridGap='20px'
-        gridTemplateColumns={"1fr 376px"}
+        gridTemplateColumns={["1fr", "1fr", "1fr", "1fr 376px"]}
         margin={"0 auto"}
       >
         <Box>

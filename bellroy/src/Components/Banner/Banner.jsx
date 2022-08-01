@@ -20,7 +20,8 @@ export const Banner = () => {
   const [ls, setLS] = useState(LeftImage1);
   const [rs, setRS] = useState(RightImage1);
   const [dual, setDual] = useState(DualImage1);
-  const {width} = useContext(ViewportContext);
+  const { width } = useContext(ViewportContext);
+
   useEffect(() => {
     const mobileViewImages = [DualImage1, DualImage2, DualImage3, DualImage4];
     let i = 0;
@@ -34,7 +35,7 @@ export const Banner = () => {
     return () => {
       clearInterval(dualImg);
     };
-  },[]);
+  }, []);
 
   useEffect(() => {
     const leftImages = [LeftImage1, LeftImage2, LeftImage3, LeftImage4];
@@ -50,12 +51,12 @@ export const Banner = () => {
     return () => {
       clearInterval(leftimgBanner);
     };
-  },[]);
+  }, []);
 
   useEffect(() => {
     const rightImages = [RightImage1, RightImage2, RightImage3, RightImage4];
     let i = 0;
-    setTimeout(function () {
+    let timer = setTimeout(function () {
       let RightimgBanner = setInterval(function () {
         if (i === rightImages.length) {
           i = 0;
@@ -68,8 +69,10 @@ export const Banner = () => {
         clearInterval(RightimgBanner);
       };
     }, 1000);
-    
-  },[]);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <Box position={"relative"}>

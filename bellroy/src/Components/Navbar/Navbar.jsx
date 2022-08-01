@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
-import {
-  Box,
-  Flex,
-  Image,
-  Text,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { ViewportContext } from "../../Contexts/ViewportContext";
 import { fetchCart } from "../../Redux/Products/action";
-import { ShowCartItems } from "./CartItems";
+import ShowCartItems from "./CartItems";
 import { ShowOptions } from "./OptionsSidebar";
 import { PopupModel } from "./PopupModel";
 
@@ -40,7 +34,7 @@ export const Navbar = () => {
   useEffect(() => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     dispatch(fetchCart(cartItems));
-  }, [dispatch]);
+  }, [dispatch, width]);
 
   const navLinks = [
     "Wallets",
@@ -55,7 +49,12 @@ export const Navbar = () => {
     <>
       {isDesktop && <DesktopView navLinks={navLinks} cart={cart} />}
       {isTab && (
-        <TabMobileView navLinks={navLinks} isTab={isTab} isMobile={isMobile} />
+        <TabMobileView
+          navLinks={navLinks}
+          isTab={isTab}
+          isMobile={isMobile}
+          cart={cart}
+        />
       )}
       {isMobile && (
         <TabMobileView
@@ -84,13 +83,15 @@ const DesktopView = ({ navLinks, cart }) => {
       </Flex>
       <Box>
         <Flex height={"4.5rem"} gap={"3rem"} paddingBottom='0.8rem'>
-          <Box marginLeft={"2rem"}>
-            <Image
-              marginTop={"-2rem"}
-              width={"6rem"}
-              src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1427935400/kickbh3rxpxwt9ibapnw.png'
-            />
-          </Box>
+          <Link to={'/'}>
+            <Box marginLeft={"2rem"}>
+              <Image
+                marginTop={"-2rem"}
+                width={"6rem"}
+                src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1427935400/kickbh3rxpxwt9ibapnw.png'
+              />
+            </Box>
+          </Link>
           <Flex justifyContent={"space-between"} flex={"1"}>
             <Flex
               fontSize='0.8rem'
@@ -147,14 +148,16 @@ const TabMobileView = ({ navLinks, isTab, isMobile, cart }) => {
     <Box>
       <Flex justifyContent={"space-between"} alignItems='center'>
         <Flex color={"#8c8b8b"} marginLeft={"0.5rem"}>
-          <ShowOptions/>
+          <ShowOptions />
           {isMobile && <PopupModel />}
         </Flex>
         <Box>
-          <Image
-            width={"4rem"}
-            src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1427935400/kickbh3rxpxwt9ibapnw.png'
-          />
+          <Link to={"/"}>
+            <Image
+              width={"4rem"}
+              src='https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1427935400/kickbh3rxpxwt9ibapnw.png'
+            />
+          </Link>
         </Box>
         <Flex color={"#8c8b8b"} marginRight={"0.5rem"} alignItems={"center"}>
           <Box>{isTab && <PopupModel />}</Box>

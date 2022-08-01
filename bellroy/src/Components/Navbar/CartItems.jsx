@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {useDispatch} from "react-redux"
+import React, { useEffect, useState, memo } from "react";
+import { useDispatch } from "react-redux";
 import {
   Badge,
   Box,
@@ -20,7 +20,7 @@ import {
 import { BsCart2 } from "react-icons/bs";
 import { fetchCart } from "../../Redux/Products/action";
 
-export const ShowCartItems = ({ cart }) => {
+const ShowCartItems = ({ cart }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const [subTotal, setSubtotal] = useState(0);
@@ -29,8 +29,10 @@ export const ShowCartItems = ({ cart }) => {
 
   useEffect(() => {
     let sum = 0;
-    for (let i = 0; i < cart.length; i++) {
-      sum += cart[i].price * cart[i].count;
+    if (cart !== undefined) {
+      for (let i = 0; i < cart.length; i++) {
+        sum += cart[i].price * cart[i].count;
+      }
     }
     setSubtotal(sum);
   }, [cart]);
@@ -42,7 +44,7 @@ export const ShowCartItems = ({ cart }) => {
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       dispatch(fetchCart(cartItems));
     }
-  }, [index,dispatch]);
+  }, [index, dispatch]);
 
   return (
     <>
@@ -63,7 +65,7 @@ export const ShowCartItems = ({ cart }) => {
           bg={"#e15a1d"}
           color='white'
         >
-          {cart.length}
+          {cart !== undefined && cart.length}
         </Badge>
       </Button>
       <Drawer
@@ -93,7 +95,7 @@ export const ShowCartItems = ({ cart }) => {
                   bg={"#e15a1d"}
                   color='white'
                 >
-                  {cart.length}
+                  {cart !== undefined && cart.length}
                 </Badge>
               </Box>
             </Center>
@@ -102,41 +104,42 @@ export const ShowCartItems = ({ cart }) => {
             </Text>
           </Box>
           <DrawerBody>
-            {cart.map((el, idx) => (
-              <Flex key={idx} marginBottom={"10px"} fontSize='0.8rem'>
-                <Flex width={"110px"}>
-                  <Image
-                    width={"90px"}
-                    height='60px'
-                    src={el.colouredWalletImages[el.imgIndex]}
-                  />
-                </Flex>
-                <Flex
-                  flexDirection={"column"}
-                  gap='10px'
-                  flexGrow='1'
-                  alignItems='center'
-                >
+            {cart !== undefined &&
+              cart?.map((el, idx) => (
+                <Flex key={idx} marginBottom={"10px"} fontSize='0.8rem'>
+                  <Flex width={"110px"}>
+                    <Image
+                      width={"90px"}
+                      height='60px'
+                      src={el.colouredWalletImages[el.imgIndex]}
+                    />
+                  </Flex>
                   <Flex
-                    alignItems={"center"}
-                    width='100%'
-                    justifyContent={"space-between"}
+                    flexDirection={"column"}
+                    gap='10px'
+                    flexGrow='1'
+                    alignItems='center'
                   >
-                    <Text textAlign={"left"} fontWeight={"600"}>
-                      {el.title}
-                    </Text>
-                    <CloseButton onClick={() => setIndex(idx)} />
-                  </Flex>
+                    <Flex
+                      alignItems={"center"}
+                      width='100%'
+                      justifyContent={"space-between"}
+                    >
+                      <Text textAlign={"left"} fontWeight={"600"}>
+                        {el.title}
+                      </Text>
+                      <CloseButton onClick={() => setIndex(idx)} />
+                    </Flex>
 
-                  <Flex width={"100%"} justifyContent='space-between'>
-                    <Text>Quantity: {el.count}</Text>
-                    <Text fontWeight={"600"}>
-                      ${el.price * el.count + " "} USD
-                    </Text>
+                    <Flex width={"100%"} justifyContent='space-between'>
+                      <Text>Quantity: {el.count}</Text>
+                      <Text fontWeight={"600"}>
+                        ${el.price * el.count + " "} USD
+                      </Text>
+                    </Flex>
                   </Flex>
                 </Flex>
-              </Flex>
-            ))}
+              ))}
           </DrawerBody>
           <DrawerFooter justifyContent={"center"}>
             <Flex flexDirection={"column"} width='100%'>
@@ -158,3 +161,5 @@ export const ShowCartItems = ({ cart }) => {
     </>
   );
 };
+
+export default memo(ShowCartItems);

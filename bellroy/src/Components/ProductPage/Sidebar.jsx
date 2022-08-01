@@ -49,7 +49,7 @@ export const Sidebar = ({ currRoute }) => {
   return (
     <Box>
       <Flex></Flex>
-      <Box marginLeft={"1rem"} width={"300px"}>
+      <Box marginLeft={"1rem"} width={{ sm: "100%", md: "300px" }}>
         <Accordion allowToggle>
           <AccordionItem borderTop={"0px"}>
             <h2>
@@ -63,7 +63,7 @@ export const Sidebar = ({ currRoute }) => {
             <AccordionPanel pb={4}>
               <Stack paddingTop={"1rem"} spacing={3} direction={"row"}>
                 {checkboxes.map((c, i) => (
-                  <Box key={i}>
+                  <Flex flexDirection={["row", "column", "row"]} key={i}>
                     <Checkbox
                       className='colCheckbox'
                       size='lg'
@@ -71,7 +71,7 @@ export const Sidebar = ({ currRoute }) => {
                       backgroundColor={`#${c.color}`}
                       onChange={() => handleChange(c.color)}
                     />
-                  </Box>
+                  </Flex>
                 ))}
               </Stack>
             </AccordionPanel>

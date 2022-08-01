@@ -29,6 +29,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         loading: false,
         error: payload,
       };
+
     // CHANGE_COLOUR
     case actionsTypes.CHANGE_COLOUR:
       return {
@@ -39,6 +40,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
             : p
         ),
       };
+
     // PICK_SELECTED_PRODUCT
     case actionsTypes.PICK_SELECTED_PRODUCT_REUQEST:
       return {
@@ -58,6 +60,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         loading: false,
         err: payload,
       };
+      
     //FETCH_CART
     case actionsTypes.FETCH_CART_REQUEST:
       return {

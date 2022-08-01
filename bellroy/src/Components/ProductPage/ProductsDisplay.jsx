@@ -21,6 +21,7 @@ export const ProductsDisplay = () => {
     dispatch(changeColour(change));
   };
 
+  // Route to single product page
   const handleRouting = (title, color) => {
     title = title.split(" ").join("-");
     navigate({
@@ -32,7 +33,14 @@ export const ProductsDisplay = () => {
   return (
     <Box width={"100%"}>
       <Grid
-        gridTemplateColumns={["1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr 1fr"]}
+        gridTemplateColumns={[
+          "1fr",
+          "1fr",
+          "1fr 1fr",
+          "1fr 1fr",
+          "1fr 1fr 1fr",
+          "1fr 1fr 1fr",
+        ]}
         gridAutoRows='1fr'
         gridGap={"10px"}
       >

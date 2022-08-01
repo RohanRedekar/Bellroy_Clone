@@ -75,7 +75,7 @@ const Content = {
 
 export const Footer = () => {
   return (
-    <Box>
+    <Box position={'relative'} width="100%" bottom="0">
       <Box
         className='blackContainer'
         display={["none", "none", "block", "block", "block", "block"]}
