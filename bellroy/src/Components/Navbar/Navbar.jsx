@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { ViewportContext } from "../../Contexts/ViewportContext";
 import { fetchCart } from "../../Redux/Products/action";
-import ShowCartItems from "./CartItems";
+import ShowCartItems from "./Cart";
 import { ShowOptions } from "./OptionsSidebar";
 import { PopupModel } from "./PopupModel";
 
@@ -34,7 +34,7 @@ export const Navbar = () => {
   useEffect(() => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     dispatch(fetchCart(cartItems));
-  }, [dispatch, width]);
+  }, [dispatch]);
 
   const navLinks = [
     "Wallets",
@@ -83,7 +83,7 @@ const DesktopView = ({ navLinks, cart }) => {
       </Flex>
       <Box>
         <Flex height={"4.5rem"} gap={"3rem"} paddingBottom='0.8rem'>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <Box marginLeft={"2rem"}>
               <Image
                 marginTop={"-2rem"}
@@ -133,7 +133,7 @@ const DesktopView = ({ navLinks, cart }) => {
                 <BiSearch fontSize={"1.9rem"} />
               </Button>
               <Box style={{ transform: "translateY(-3px)" }}>
-                <ShowCartItems cart={cart} />
+                <ShowCartItems />
               </Box>
             </Flex>
           </Flex>
@@ -143,7 +143,7 @@ const DesktopView = ({ navLinks, cart }) => {
   );
 };
 
-const TabMobileView = ({ navLinks, isTab, isMobile, cart }) => {
+const TabMobileView = ({ isTab, isMobile, cart }) => {
   return (
     <Box>
       <Flex justifyContent={"space-between"} alignItems='center'>
@@ -165,7 +165,7 @@ const TabMobileView = ({ navLinks, isTab, isMobile, cart }) => {
             <BiSearch fontSize={"1.9rem"} />
           </Button>
           <Box style={{ transform: "translateY(-3px)" }}>
-            <ShowCartItems cart={cart} />
+            <ShowCartItems />
           </Box>
         </Flex>
       </Flex>
