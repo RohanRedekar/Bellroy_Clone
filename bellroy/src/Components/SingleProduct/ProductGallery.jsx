@@ -1,16 +1,13 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { Box, Flex, Grid, Image } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ViewportContext } from "../../Contexts/ViewportContext";
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/navigation";
-import "swiper/css";
+import SimpleImageSlider from "react-simple-image-slider";
 
-export const ProductGallery = (data) => {
+export const ProductGallery = () => {
   const [index, setIndex] = useState(0);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const paramColour = searchParams.get("color");
   const product = useSelector((store) => store.productData.product);
   const { width } = useContext(ViewportContext);
@@ -46,13 +43,15 @@ export const ProductGallery = (data) => {
         </Box>
       )}
       {width < 992 && product._id && (
-        <Swiper width={'100%'} modules={[Navigation]}>
-          {product?.detailedImages[paramColour]?.map((el, i) => (
-            <SwiperSlide key={i}>
-              <img srcSet={el} alt={`swiperimg${i}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <Box>
+          {/* Image Slider for small width */}
+          <SimpleImageSlider
+            width={"100%"}
+            height={330}
+            images={product?.detailedImages[paramColour]}
+            showNavs={true}
+          />
+        </Box>
       )}
       {""}
     </>
