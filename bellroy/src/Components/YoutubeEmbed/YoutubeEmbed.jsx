@@ -15,7 +15,7 @@ export const YoutubeEmbed = () => (
           width='853'
           height='480'
           loading='lazy'
-          src={`https://www.youtube.com/embed/w1uA0R9_mnU?list=TLGGJGBnd-igeV4yOTA3MjAyMg`}
+          src={`https://www.youtube.com/embed/w1uA0R9_mnU`}
           frameBorder='0'
           allowFullScreen
           title='Embedded youtube'

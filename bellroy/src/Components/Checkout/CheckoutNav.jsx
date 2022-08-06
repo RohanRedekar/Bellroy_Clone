@@ -2,6 +2,7 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { GlobalDelivery, SecurePayment, Warrenty } from "../Svgs";
+import { Link as RouterLink } from "react-router-dom";
 
 const CheckoutNav = () => {
   return (
@@ -19,9 +20,11 @@ const CheckoutNav = () => {
         >
           <Flex color='rgb(163,163,163)' flex='1 1 0' alignItems={"center"}>
             <ChevronLeftIcon fontSize={["18px", "20px", "30px"]} />
-            <Text fontSize={["10px", "10px", "14px", "16px"]}>
-              Continue shopping
-            </Text>
+            <RouterLink to={"/"}>
+              <Text fontSize={["10px", "10px", "14px", "16px"]}>
+                Continue shopping
+              </Text>
+            </RouterLink>
           </Flex>
           <Flex flex='1 1 0' alignItems={"center"} justifyContent='center'>
             <Image
