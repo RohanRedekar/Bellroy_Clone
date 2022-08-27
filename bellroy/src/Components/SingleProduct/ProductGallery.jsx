@@ -4,22 +4,33 @@ import { useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ViewportContext } from "../../Contexts/ViewportContext";
 import SimpleImageSlider from "react-simple-image-slider";
+import { useEffect } from "react";
 
 export const ProductGallery = () => {
   const [index, setIndex] = useState(0);
+  const [url, setUrl] = useState("");
   const [searchParams] = useSearchParams();
   const paramColour = searchParams.get("color");
   const product = useSelector((store) => store.productData.product);
   const { width } = useContext(ViewportContext);
+
+  useEffect(() => {
+    try {
+      if (product) setUrl(product.detailedImages[paramColour][index]);
+    } catch (err) {
+      console.log("err:", err);
+    }
+  }, [product, paramColour, index]);
+
   return (
     <>
-      {width >= 992 && product._id && (
+      {width >= 992 && product._id && url.length > 0 && (
         <Box>
           {/* Display Image */}
           <Box>
             <Image
               width={"100%"}
-              srcSet={product?.detailedImages[paramColour][index]}
+              srcSet={url}
             />
           </Box>
           <Grid

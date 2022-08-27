@@ -15,34 +15,36 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "../../Redux/Products/action";
 import { StaticAccordionComp } from "./StaticAccordionComp";
+import { useSearchParams } from "react-router-dom";
 
 export const ProductInfo = () => {
   const product = useSelector((store) => store.productData.product);
   const [cartData, setCartData] = useState([]);
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const paramColour = searchParams.get("color");
 
   useEffect(() => {
     dispatch(fetchCart(cartData));
   }, [cartData, dispatch]);
 
   // Storing Cart item ids in local storage then fetching from database
-  const handleCart = (id) => {
+  const handleCart = (id, currColor) => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let val = { id: id, count: 1, color: currColor };
     if (cartItems.length === 0) {
-      let val = { id: id, count: 1 };
       cartItems.push(val);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       setCartData(cartItems);
     } else {
       for (let i = 0; i < cartItems.length; i++) {
-        if (cartItems[i].id === id) {
+        if (cartItems[i].id === id && cartItems[i].color === currColor) {
           cartItems[i].count += 1;
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
           setCartData(cartItems);
           return;
         }
       }
-      let val = { id: id, count: 1 };
       cartItems.push(val);
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       setCartData(cartItems);
@@ -70,7 +72,7 @@ export const ProductInfo = () => {
       </Flex>
       {/* <hr style={{ borderTop: "1px solid #D8D8D8" }} /> */}
       <Button
-        onClick={() => handleCart(product._id)}
+        onClick={() => handleCart(product._id, paramColour)}
         letterSpacing={"2px"}
         w='100%'
         colorScheme={"orange"}

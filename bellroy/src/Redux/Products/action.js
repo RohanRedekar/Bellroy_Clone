@@ -46,7 +46,7 @@ export const getProducts = (prod, colors) => (dispatch) => {
     method: "GET",
     url: `https://bellroy-backend.herokuapp.com/products/${prod}`,
     params: {
-      filter: colors
+      filter: colors,
     },
   })
     .then((data) => dispatch(getProductsSuccess(data.data.products)))
@@ -98,11 +98,13 @@ export const fetchCart = (payload) => (dispatch) => {
   axios({
     mathod: "GET",
     url: "https://bellroy-backend.herokuapp.com/fetchCart",
-    // url: "http://localhost:3001/fetchCart",
     params: {
       payload: payload,
     },
   })
-    .then((res) => dispatch(fetchCartSuccess(res.data)))
+    .then((res) => {
+      console.log(res);
+      dispatch(fetchCartSuccess(res.data));
+    })
     .catch((err) => dispatch(fetchCartFailure(err.data)));
 };

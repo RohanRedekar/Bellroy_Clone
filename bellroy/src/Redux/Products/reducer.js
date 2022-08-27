@@ -49,6 +49,7 @@ export const ProductReducer = (state = initState, { type, payload }) => {
         error: "",
       };
     case actionsTypes.PICK_SELECTED_PRODUCT_SUCCESS:
+      // console.log(payload)
       return {
         ...state,
         product: payload,
