@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { BiMenu } from "react-icons/bi";
+import { v4 as uuidv4 } from "uuid";
 
 export const ShowOptions = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -116,7 +117,7 @@ export const ShowOptions = () => {
           <Accordion allowToggle>
             {optionItems.map((el) => (
               //
-              <AccordionItem key={el.title}>
+              <AccordionItem key={uuidv4()}>
                 <h2>
                   <AccordionButton
                     _hover={false}
@@ -139,7 +140,7 @@ export const ShowOptions = () => {
                   <Grid marginLeft={"10px"} gridTemplateColumns={"1fr 1fr"}>
                     {el.subTitles.map((sub, i) => (
                       <Text
-                        key={sub + i}
+                        key={uuidv4()}
                         letterSpacing='1.5px'
                         fontSize='0.8rem'
                         fontFamily={"'Lato',sans-serif"}

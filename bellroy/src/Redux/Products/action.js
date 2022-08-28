@@ -102,9 +102,6 @@ export const fetchCart = (payload) => (dispatch) => {
       payload: payload,
     },
   })
-    .then((res) => {
-      console.log(res);
-      dispatch(fetchCartSuccess(res.data));
-    })
+    .then((res) => dispatch(fetchCartSuccess(res.data)))
     .catch((err) => dispatch(fetchCartFailure(err.data)));
 };

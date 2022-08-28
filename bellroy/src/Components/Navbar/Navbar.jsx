@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { Box, Flex, Image, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import { fetchCart } from "../../Redux/Products/action";
 import ShowCartItems from "./Cart";
 import { ShowOptions } from "./OptionsSidebar";
 import { PopupModel } from "./PopupModel";
+import { v4 as uuidv4 } from "uuid";
 
 const StyledPtag = styled.p`
   &:hover {
@@ -22,7 +23,6 @@ export const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTab, setIsTab] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const cart = useSelector((store) => store.productData.cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,28 +47,18 @@ export const Navbar = () => {
 
   return (
     <>
-      {isDesktop && <DesktopView navLinks={navLinks} cart={cart} />}
+      {isDesktop && <DesktopView navLinks={navLinks} />}
       {isTab && (
-        <TabMobileView
-          navLinks={navLinks}
-          isTab={isTab}
-          isMobile={isMobile}
-          cart={cart}
-        />
+        <TabMobileView navLinks={navLinks} isTab={isTab} isMobile={isMobile} />
       )}
       {isMobile && (
-        <TabMobileView
-          navLinks={navLinks}
-          isTab={isTab}
-          isMobile={isMobile}
-          cart={cart}
-        />
+        <TabMobileView navLinks={navLinks} isTab={isTab} isMobile={isMobile} />
       )}
     </>
   );
 };
 
-const DesktopView = ({ navLinks, cart }) => {
+const DesktopView = ({ navLinks }) => {
   return (
     <Box fontFamily={"Lato,sans-serif"}>
       <Flex justifyContent={"right"} alignItems='center' height={"1.7rem"}>
@@ -101,8 +91,8 @@ const DesktopView = ({ navLinks, cart }) => {
               alignItems={"center"}
               fontWeight='bold'
             >
-              {navLinks.map((el, i) => (
-                <Link key={i} to={`/products/${el}`}>
+              {navLinks.map((el) => (
+                <Link key={uuidv4()} to={`/products/${el}`}>
                   <StyledPtag>{el}</StyledPtag>
                 </Link>
               ))}
@@ -143,7 +133,7 @@ const DesktopView = ({ navLinks, cart }) => {
   );
 };
 
-const TabMobileView = ({ isTab, isMobile, cart }) => {
+const TabMobileView = ({ isTab, isMobile }) => {
   return (
     <Box>
       <Flex justifyContent={"space-between"} alignItems='center'>

@@ -22,6 +22,7 @@ export const Banner = () => {
   const [dual, setDual] = useState(DualImage1);
   const { width } = useContext(ViewportContext);
 
+  // Mobile view
   useEffect(() => {
     const mobileViewImages = [DualImage1, DualImage2, DualImage3, DualImage4];
     let i = 0;
@@ -37,6 +38,7 @@ export const Banner = () => {
     };
   }, []);
 
+  // desktop view left poster
   useEffect(() => {
     const leftImages = [LeftImage1, LeftImage2, LeftImage3, LeftImage4];
     let i = 0;
@@ -53,6 +55,7 @@ export const Banner = () => {
     };
   }, []);
 
+  // desktop view right poster
   useEffect(() => {
     const rightImages = [RightImage1, RightImage2, RightImage3, RightImage4];
     let i = 0;

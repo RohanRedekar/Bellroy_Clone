@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { ViewportContext } from "../../Contexts/ViewportContext";
 import SimpleImageSlider from "react-simple-image-slider";
 import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const ProductGallery = () => {
   const [index, setIndex] = useState(0);
@@ -17,9 +18,7 @@ export const ProductGallery = () => {
   useEffect(() => {
     try {
       if (product) setUrl(product.detailedImages[paramColour][index]);
-    } catch (err) {
-      console.log("err:", err);
-    }
+    } catch (err) {}
   }, [product, paramColour, index]);
 
   return (
@@ -28,10 +27,7 @@ export const ProductGallery = () => {
         <Box>
           {/* Display Image */}
           <Box>
-            <Image
-              width={"100%"}
-              srcSet={url}
-            />
+            <Image width={"100%"} srcSet={url} />
           </Box>
           <Grid
             gridTemplateColumns={"repeat(8,1fr)"}
@@ -41,7 +37,7 @@ export const ProductGallery = () => {
             {/* Images Gallery */}
             {/* Change display image by clicking on any of the below images */}
             {product?.detailedImages[paramColour]?.map((el, i) => (
-              <Flex borderStyle={"none"} key={i} height={"62px"}>
+              <Flex borderStyle={"none"} key={uuidv4()} height={"62px"}>
                 <Image
                   height={"62px"}
                   _hover={{ borderBottom: "3px solid rgb(225,97,86)" }}

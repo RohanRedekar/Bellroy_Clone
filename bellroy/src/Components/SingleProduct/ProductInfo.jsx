@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "../../Redux/Products/action";
 import { StaticAccordionComp } from "./StaticAccordionComp";
 import { useSearchParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 export const ProductInfo = () => {
   const product = useSelector((store) => store.productData.product);
@@ -89,8 +90,8 @@ export const ProductInfo = () => {
         DESIGN INSIGHTS
       </Text>
       <UnorderedList>
-        {product?.pointers?.map((p, i) => (
-          <ListItem key={i} fontSize={"0.9rem"} color='#696969'>
+        {product?.pointers?.map((p) => (
+          <ListItem key={uuidv4()} fontSize={"0.9rem"} color='#696969'>
             {p}
           </ListItem>
         ))}
@@ -114,8 +115,12 @@ export const ProductInfo = () => {
           </h2>
           <AccordionPanel pb={4}>
             <UnorderedList color='#696969' marginTop={"3px"}>
-              {product?.specifications?.map((p, i) => (
-                <ListItem key={i} marginLeft={"-1rem"} fontSize={"0.8rem"}>
+              {product?.specifications?.map((p) => (
+                <ListItem
+                  key={uuidv4()}
+                  marginLeft={"-1rem"}
+                  fontSize={"0.8rem"}
+                >
                   {p}
                 </ListItem>
               ))}

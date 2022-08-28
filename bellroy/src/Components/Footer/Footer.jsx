@@ -23,6 +23,8 @@ import {
 } from "../Svgs";
 import "./Footer.css";
 import { CertifiedImage1, CertifiedImage2 } from "../Images";
+import { v4 as uuidv4 } from "uuid";
+
 const Content = {
   HELP: [
     "Customer Care",
@@ -83,7 +85,7 @@ export const Footer = () => {
         <Grid className='footerGrid'>
           {Object.keys(Content).map((el) => {
             return (
-              <GridItem key={el} className={el.split(" ").join("")}>
+              <GridItem key={uuidv4()} className={el.split(" ").join("")}>
                 <Text>{el}</Text>
                 {Content[el].map((e) => (
                   <Text className='footerLinks' key={e}>
@@ -106,7 +108,7 @@ export const Footer = () => {
         <Accordion allowToggle>
           {Object.keys(Content).map((el) => {
             return (
-              <AccordionItem key={el}>
+              <AccordionItem key={uuidv4()}>
                 <h2 className='footerTitles'>
                   <AccordionButton>
                     <Box flex='1' textAlign='left'>

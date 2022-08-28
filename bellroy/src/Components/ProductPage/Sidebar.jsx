@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "./Sidebar.css";
+import { v4 as uuidv4 } from "uuid";
 import {
   Box,
   Flex,
@@ -63,7 +64,7 @@ export const Sidebar = ({ currRoute }) => {
             <AccordionPanel pb={4}>
               <Stack paddingTop={"1rem"} spacing={3} direction={"row"}>
                 {checkboxes.map((c, i) => (
-                  <Flex flexDirection={["row", "column", "row"]} key={i}>
+                  <Flex flexDirection={["row", "column", "row"]} key={uuidv4()}>
                     <Checkbox
                       className='colCheckbox'
                       size='lg'

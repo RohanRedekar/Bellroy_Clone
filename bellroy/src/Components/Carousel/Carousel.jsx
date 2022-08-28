@@ -8,6 +8,8 @@ import "swiper/css";
 import "./Carousel.css";
 import { carouselImgData as data } from "../Images";
 import { ViewportContext } from "../../Contexts/ViewportContext";
+import { v4 as uuidv4 } from "uuid";
+
 export const Carousel = () => {
   const { width } = useContext(ViewportContext);
   // states for different screen sizes
@@ -31,7 +33,7 @@ export const Carousel = () => {
       {isDesktop && (
         <Flex className='carouselFlex'>
           {data.map((el) => (
-            <Box key={el.name} className='carouselItemBox'>
+            <Box key={uuidv4()} className='carouselItemBox'>
               <img
                 srcSet={el.image}
                 className={el.name.split(" ").join("")}
@@ -52,7 +54,7 @@ export const Carousel = () => {
           onSlideChange={() => console.log("slide change")}
         >
           {data.map((el) => (
-            <SwiperSlide className='carouselItemBox' key={el.name}>
+            <SwiperSlide className='carouselItemBox' key={uuidv4()}>
               <img
                 srcSet={el.image}
                 className={el.name.split(" ").join("")}

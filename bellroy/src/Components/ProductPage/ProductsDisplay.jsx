@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Box, Flex, Grid, Image, Stack, Text } from "@chakra-ui/react";
 import { changeColour } from "../../Redux/Products/action";
+import { v4 as uuidv4 } from "uuid";
 
 export const ProductsDisplay = () => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ export const ProductsDisplay = () => {
                   >
                     {/*Mapping Coloured Checkboxes */}
                     {el?.colors.map((c, i) => (
-                      <Box key={i}>
+                      <Box key={uuidv4()}>
                         <Flex
                           width='20px'
                           height='20px'
