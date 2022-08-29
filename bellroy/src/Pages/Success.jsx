@@ -13,7 +13,7 @@ export const Success = () => {
         >
           <Image margin={"auto"} w={350} srcSet={successImg} />
           <Heading color={"orange"} textTransform={"uppercase"}>
-            awesome, payment was successful!
+            Awesome, order was successful!
           </Heading>
           <RouterLink to={"/"}>
             <Button colorScheme={"green"} marginTop={"1rem"}>
